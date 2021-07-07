@@ -614,7 +614,7 @@ void collection::initSeeding(map<int, tdListEntry> &tdList) {
 			if (deltaR < 0) {
 				It->second.seed = tdListIt->second.rating;
 				int dayCount = boost::gregorian::date_period(tdListIt->second.lastRatingDate, tournamentDate).length().days();	
-				It->second.sigma = sqrt(tdListIt->second.sigma * tdListIt->second.sigma + 0.0005 * 0.0005 * dayCount * dayCount);	
+				It->second.sigma = sqrt(tdListIt->second.sigma * tdListIt->second.sigma + 0.001 * 0.001 * dayCount * dayCount);	
 			}						
 			// Is this a self promotion by more than three stones?
 			// If so, treat as a reseeding.  Players must win at least one game
@@ -632,7 +632,7 @@ void collection::initSeeding(map<int, tdListEntry> &tdList) {
 			else {
 				It->second.seed  = tdListIt->second.rating;
 				int dayCount = boost::gregorian::date_period(tdListIt->second.lastRatingDate, tournamentDate).length().days();
-				It->second.sigma = sqrt(tdListIt->second.sigma * tdListIt->second.sigma + 0.0005 * 0.0005 * dayCount * dayCount);	
+				It->second.sigma = sqrt(tdListIt->second.sigma * tdListIt->second.sigma + 0.001 * 0.001 * dayCount * dayCount);	
 			}
 		}
 //		cout << "Seed: " << It->second.id << '\t' << It->second.seed << '\t' << It->second.sigma << endl;
